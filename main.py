@@ -13,6 +13,6 @@ df['Gender'] = df['Gender'].map({'Male':0,'Female':1})
 
 df = df[['Age','Annual Income (k$)','Spending Score (1-100)']]
 
-centroid_df = k_mean.k_mean(df, 4)
+centroid_df = k_mean.k_mean(df,4)
 
-k_mean.draw_kmean_plot(df, centroid_df, 'Annual Income (k$)', 'Spending Score (1-100)')
+#k_mean.draw_kmean_plot(df, centroid_df, 'Annual Income (k$)', 'Spending Score (1-100)')

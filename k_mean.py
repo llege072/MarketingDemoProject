@@ -2,6 +2,23 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
 
+import pandas as pd
+
+class k_mean_model():
+  def __init__(self, csv_file, k):
+    
+    self.orig_df = pd.read_csv(csv_file)
+    self.k = k
+    self.cleaned_df = None
+    self.scaled_df = None
+
+  #df is expected to only have the columns it wants
+  def set_cleaned_df(self,df):
+    self.cleaned_df = df
+
+
+
+
 #a function that takes already clean data and returns sc 
 def k_mean(df, k):
 
@@ -31,16 +48,20 @@ def draw_kmean_plot(df, centroids, attr1, attr2):
   plt.scatter(df[attr1], df[attr2],
             c=df['Clusters'], cmap='viridis', s=50, alpha=0.7)
 
-  # Plot centroids (you already computed centroids_real)
+  # Plot centroids 
   plt.scatter(centroids[:,1], centroids[:,2],
             c='red', marker='X', s=200, label='Centroids')
-
+  
   # Labels and title
   plt.xlabel("Annual Income (k$)")  
   plt.ylabel("Spending Score (1-100)")
   plt.title("Customer Segments: Income vs Spending Score")
   plt.legend()
   plt.show()
+
+  
+
+
 
 
 
